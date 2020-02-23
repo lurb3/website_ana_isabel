@@ -29,3 +29,30 @@ $understrap_includes = array(
 foreach ( $understrap_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
+ 	
+function getMenu() {
+	require_once('menu.php');
+}
+
+function my_admin_menu() {
+	add_menu_page(
+		__( 'Sample page', 'my-textdomain' ),
+		__( 'Sample menu', 'my-textdomain' ),
+		'manage_options',
+		'sample-page',
+		'my_admin_page_contents',
+		'dashicons-schedule',
+		3
+	);
+}
+
+add_action( 'admin_menu', 'my_admin_menu' );
+
+
+function my_admin_page_contents() {
+	?>
+		<h1>
+			<?php esc_html_e( 'Welcome to my custom admin page.', 'my-plugin-textdomain' ); ?>
+		</h1>
+	<?php
+}

@@ -18,7 +18,7 @@ get_header();
 
 ?>
 
-<div class="wrapper" id="index-wrapper">
+<div>
 
 	<div class="container" id="content" tabindex="-1">
 
