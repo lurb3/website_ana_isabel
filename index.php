@@ -20,12 +20,12 @@ get_header();
 
 <div>
 
-	<div class="container" id="content" tabindex="-1">
+	<div class="container mw-100 w-100" id="content" tabindex="-1">
 
 		<div class="row">
 
 			<main class="site-main" id="main">
-
+				<img src=" <?php echo get_template_directory_uri() ?>/images/image1.jpg">
 			</main><!-- #main -->
 
 		</div><!-- .row -->
