@@ -25,7 +25,15 @@ get_header();
 		<div class="row">
 
 			<main class="site-main" id="main">
-				<img src=" <?php echo get_template_directory_uri() ?>/images/image1.jpg">
+				<?php
+					$posts = get_posts();
+					foreach($posts as $post) {
+						$thumbnail = get_the_post_thumbnail($post->ID);
+						echo "<img src=" . $thumbnail . ">";
+						var_dump(acf_photo_gallery('image', $post->ID));
+					}
+
+				?>
 			</main><!-- #main -->
 
 		</div><!-- .row -->
