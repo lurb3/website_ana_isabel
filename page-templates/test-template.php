@@ -13,6 +13,13 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-echo "Test Template";
+?>
 
-get_footer();
+<div class="test">
+	<br><br>
+	Test template
+</div>
+
+<?php
+	get_footer();
+?>

@@ -25,12 +25,21 @@ get_header();
 		<div class="row">
 
 			<main class="site-main" id="main">
+
+
 				<?php
-					$posts = get_posts();
-					foreach($posts as $post) {
-						$thumbnail = get_the_post_thumbnail($post->ID);
-						echo "<img src=" . $thumbnail . ">";
-						var_dump(acf_photo_gallery('image', $post->ID));
+
+
+
+					$field = get_field_object('field_5e77b75fb62c6');
+					var_dump($field['value']);
+
+					$pages = get_pages();
+					foreach($pages as $page) {
+
+						$thumbnail = get_the_post_thumbnail($page->ID);
+						echo $thumbnail;
+						//var_dump(acf_photo_gallery('image', $post->ID));
 					}
 
 				?>
