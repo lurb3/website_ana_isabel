@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Test Template
+ * Template Name: Photos Template
  *
  * Template for displaying a page just with the header and footer area and a "naked" content area in between.
  * Good for landingpages and other types of pages where you want to add a lot of custom markup.
@@ -15,9 +15,16 @@ get_header();
 
 ?>
 
-<div class="test">
-	<br><br>
-	Test template
+<div id="photos-template" style="margin-left:633px;">
+	<?php
+		$posts = get_posts();
+		foreach($posts as $post) {
+			echo $post->post_title . "<br>";
+			if(get_field('page') == 'Pura Filigrana') {
+				echo get_field('page');
+			}
+		}
+	?>
 </div>
 
 <?php

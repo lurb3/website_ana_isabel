@@ -262,4 +262,4 @@ function acf_load_color_field_choices( $field ) {
     
 }
 
-add_filter('acf/load_field/name=teste', 'acf_load_color_field_choices');
+add_filter('acf/load_field/name=page', 'acf_load_color_field_choices');

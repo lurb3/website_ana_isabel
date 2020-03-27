@@ -36,9 +36,9 @@ get_header();
 
 					$pages = get_pages();
 					foreach($pages as $page) {
-
+						$page_url = get_post_permalink($page->ID);
 						$thumbnail = get_the_post_thumbnail($page->ID);
-						echo $thumbnail;
+						echo "<a href=" . $page_url . ">" . $thumbnail . "</a>";
 						//var_dump(acf_photo_gallery('image', $post->ID));
 					}
 
