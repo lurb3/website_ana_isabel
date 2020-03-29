@@ -262,4 +262,8 @@ function acf_load_color_field_choices( $field ) {
     
 }
 
-add_filter('acf/load_field/name=page', 'acf_load_color_field_choices');
+// Remove default editor from posts and page
+/*add_action( 'init', function() {
+    remove_post_type_support( 'post', 'editor' );
+    remove_post_type_support( 'page', 'editor' );
+}, 99);*/

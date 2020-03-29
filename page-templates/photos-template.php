@@ -15,16 +15,44 @@ get_header();
 
 ?>
 
-<div id="photos-template" style="margin-left:633px;">
+<div id="photos-template" class="container" style="margin-left:633px;">
+
+	<!-- Show page content -->
 	<?php
-		$posts = get_posts();
-		foreach($posts as $post) {
-			echo $post->post_title . "<br>";
-			if(get_field('page') == 'Pura Filigrana') {
-				echo get_field('page');
-			}
-		}
+		while ( have_posts() ) : the_post(); // While loop because the content only works inside a wp loop
+
+		echo "
+			<div class='entry-content-page'>
+				" . the_content() . "
+			</div>	
+		";
+
+		endwhile; //resetting the page loop
+		wp_reset_query(); //resetting the page query
 	?>
+	<div class="row">
+		<?php
+
+			$posts = get_posts();
+
+			foreach($posts as $post) {
+				$images = acf_photo_gallery('image', $post->ID);
+
+				if(get_field('page') == 'Pura Filigrana') {
+					$calc = (12 / count($images));
+					foreach($images as $image) {
+						$full_image_url= $image['full_image_url']; //Full size image url
+						echo "
+							<div class='col-lg-" . $calc . " single-image-wrapper'>
+								<img src = " . $full_image_url . " alt = " . $title . " title = " . $title . ">
+							</div>
+						";
+					}
+				}
+			}
+		?>
+	</div>
+
 </div>
 
 <?php
