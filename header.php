@@ -32,58 +32,35 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</header>
 
 		<div>
-			<div class="side-menu-list-block">
-				<h3>
-					Author Projects
-				</h3>
-				<ul>
-					<li>
-						Metamorphosis
-					</li>
-					<li>
-						Arquitecture
-					</li>
-					<li>
-						Editorial
-					</li>
-					<li>
-						Studio Work
-					</li>
-				</ul>
-			</div>
 
-			<div class="side-menu-list-block">
-				<h3>
-					Commercial/Editorial Work
-				</h3>
-				<ul>
-					<li>
-						Isabel Mantero Joalharia
-					</li>
-					<li>
-						Pulp Studio Store
-					</li>
-				</ul>
-			</div>
+			<?php
+				$pages = get_pages();
 
-			<div class="side-menu-list-block">
-				<ul>
-					<li>
-						"Constructivist Women", Editorial
-					</li>
-					<li>
-						Pura Filigrana, Editorial
-					</li>
-				</ul>
-			</div>
+				$cats = [];
+				
+				foreach($pages as $page) {
+					$cats[get_the_category($page->ID)[0]->cat_name][] = "
+						<a href ='" . get_permalink($page->ID) . "'> " . $page->post_title ."</a>
+					";
+				}
+				foreach($cats as $key => $value) {
+					$c = [];
+					echo "
+					<div class='side-menu-list-block'>
+						<h3> " . $key . " </h3>
+						<ul>";
 
-			<div class="side-menu-list-block">
-				<ul>
-					<li>
-						BITS - "Odisseia dos Pássaros", 2017
-					</li>
-				</ul>
-			</div>
+					foreach($value as $v) {
+						echo "<li> " . $v . "</li>";
+					}
+
+					echo "
+						</ul>
+					</div>
+					";
+				}
+			?>
+
 		</div>
 
 		<footer class="side-menu-footer">

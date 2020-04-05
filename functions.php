@@ -232,7 +232,6 @@ function my_admin_menu() {
 
 add_action( 'admin_menu', 'my_admin_menu' );
 
-
 function my_admin_page_contents() {
 	?>
 		<h1>
@@ -241,9 +240,11 @@ function my_admin_page_contents() {
 	<?php
 }
 
+// Populate page dropdown field
+add_filter('acf/load_field/name=page', 'acf_load_color_field_choices');
+
 // Fill choices acf field with pages titles
 function acf_load_color_field_choices( $field ) {
-    
     // reset choices
     $field['choices'] = array();
 
@@ -259,8 +260,13 @@ function acf_load_color_field_choices( $field ) {
 
     // return the field
     return $field;
-    
 }
+
+function add_taxonomies_to_pages() {
+    register_taxonomy_for_object_type( 'post_tag', 'page' );
+    register_taxonomy_for_object_type( 'category', 'page' );
+    }
+add_action( 'init', 'add_taxonomies_to_pages' );
 
 // Remove default editor from posts and page
 /*add_action( 'init', function() {
