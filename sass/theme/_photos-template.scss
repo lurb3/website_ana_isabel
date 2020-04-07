@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+$monoFont: 'Space Mono', monospace;
+
 .single-image-wrapper {
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: .25rem;
+}
+
+#entry-content-page {
+    p{font-family: $monoFont;}
+    a {
+        text-decoration: underline;
+        color: rgba(0, 0, 0, 0.75);
+    }
 }

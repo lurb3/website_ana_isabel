@@ -22,8 +22,8 @@ get_header();
 		while ( have_posts() ) : the_post(); // While loop because the content only works inside a wp loop
 
 		echo "
-			<div class='entry-content-page'>
-				" . the_content() . "
+			<div id='entry-content-page'>
+				" . get_the_content() . "
 			</div>	
 		";
 
@@ -34,16 +34,11 @@ get_header();
 
 	<div class="row">
 		<?php
-
 			$posts = get_posts();
 			$page_title = get_the_title();
-
 			foreach($posts as $post) {
 				$images = acf_photo_gallery('image', $post->ID);
-
-
 				if(get_field('page') == $page_title) {
-					
 					$calc = (12 / count($images));
 					foreach($images as $image) {
 						$full_image_url= $image['full_image_url']; //Full size image url

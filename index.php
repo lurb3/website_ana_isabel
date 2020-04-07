@@ -25,8 +25,6 @@ get_header();
 			<main class="site-main" id="main">
 				<div id="home-pictures">
 					<?php
-						$field = get_field_object('field_5e77b75fb62c6');
-
 						$pages = get_pages();
 						foreach($pages as $page) {
 							$page_url = get_post_permalink($page->ID);
