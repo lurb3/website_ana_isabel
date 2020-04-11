@@ -273,3 +273,10 @@ add_action( 'init', 'add_taxonomies_to_pages' );
     remove_post_type_support( 'post', 'editor' );
     remove_post_type_support( 'page', 'editor' );
 }, 99);*/
+
+wp_enqueue_style( 'slider', get_template_directory_uri() . '/css/lightgallery/lightgallery.css');
+
+wp_enqueue_script( 'script', get_template_directory_uri() . '/js/photo-slider.js');
+wp_enqueue_script( 'script', get_template_directory_uri() . '/js/lightgallery/lightgallery.min.js');
+wp_enqueue_script( 'script', get_template_directory_uri() . '/js/lightgallery/lg-thumbnail.min.js');
+wp_enqueue_script( 'script', get_template_directory_uri() . '/js/lightgallery/lg-fullscreen.min.min.js');

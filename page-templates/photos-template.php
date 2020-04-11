@@ -15,6 +15,17 @@ get_header();
 
 ?>
 
+<div id="photo-slider">
+	<div id="photo-wrapper">
+		<img id="slider-current-photo" src="#" alt="">
+		<div id="arrows-wrapper" class="text-center mt-2">
+			<div class="d-inline"><img onclick="prevSlide()" style="width:30px; margin-right:20px;" src="<?php echo get_bloginfo('stylesheet_directory') . '/images/arrow-left.svg'; ?>" alt=""></div>
+			<div class="d-inline"><img onclick="nextSlide()" style="width:30px;" src="<?php echo get_bloginfo('stylesheet_directory') . '/images/arrow-right.svg'; ?>" alt=""></div>
+		</div>
+		<div onclick="closeSlider(this)" id="photo-slider-background"></div>
+	</div>
+</div>
+
 <div id="photos-template" class="col-lg-9">
 
 	<!-- Show page content -->
@@ -31,7 +42,6 @@ get_header();
 		wp_reset_query(); //resetting the page query
 	?>
 
-
 	<div class="row">
 		<?php
 			$posts = get_posts();
@@ -44,24 +54,10 @@ get_header();
 						$full_image_url= $image['full_image_url']; //Full size image url
 						echo "
 							<div class='col-lg-" . $calc . " single-image-wrapper'>
-								<img src = " . $full_image_url . " alt = " . $image['title'] . " title = " . $title . ">
+								<img class='photo-slider-image' onclick='openSlider(this)' src = " . $full_image_url . " alt = " . $image['title'] . " title = " . $title . ">
 							</div>
 						";
 					}
-					// CODE FOR REPEATER
-					/*if(have_rows('teste')) {
-						while(have_rows('teste')) {
-							the_row();
-							$sub_field = get_sub_field('photos');
-							foreach($sub_field as $field) {
-								echo "
-									<div class='col-lg-" . $calc . " single-image-wrapper'>
-										<img src = " . $field['url'] . " alt = " . $field['alt'] . ">
-									</div>
-								";
-							}
-						}
-					}*/
 				}
 			}
 		?>

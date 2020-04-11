@@ -16,3 +16,36 @@ $monoFont: 'Space Mono', monospace;
         color: rgba(0, 0, 0, 0.75);
     }
 }
+
+#photo-slider {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+    #photo-slider-background {
+        position: absolute;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+        background-color: rgba(0, 0, 0, 0.514);
+        z-index:2;
+    }
+    #photo-wrapper {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        height:100%;
+        padding:50px;
+        #arrows-wrapper {
+            z-index:3;
+        }
+        #slider-current-photo {
+            align-self: center;
+            z-index:3;
+        }
+    }
+}
