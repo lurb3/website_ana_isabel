@@ -6,7 +6,16 @@ $monoFont: 'Space Mono', monospace;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: .25rem;
+    padding: 7px;
+    .photo-slider-image {
+        cursor: -moz-zoom-in; 
+        cursor: -webkit-zoom-in; 
+        cursor: zoom-in;
+        transition: opacity 0.5s;
+        &:hover {
+            opacity:0.5;
+        }
+    }
 }
 
 #entry-content-page {
@@ -42,10 +51,24 @@ $monoFont: 'Space Mono', monospace;
         padding:50px;
         #arrows-wrapper {
             z-index:3;
+            .arrows {
+                display: inline;
+                cursor: pointer;
+            }
         }
         #slider-current-photo {
             align-self: center;
             z-index:3;
+        }
+        #cross {
+            position: absolute;
+            top:0;
+            right:0;
+            padding:20px;
+            cursor: pointer;
+            img {
+                width:30px;
+            }
         }
     }
 }

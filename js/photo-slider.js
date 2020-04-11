@@ -20,6 +20,10 @@ document.onkeydown = (event) => {
             case "ArrowRight" :
                 nextSlide();
                 break;
+
+            case "Escape" :
+                closeSlider();
+                break;
         }
     }
 
