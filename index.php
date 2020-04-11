@@ -17,9 +17,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 
 ?>
-
-<div>
-
+<div class="col-lg-9">
 	<div class="container mw-100 w-100" id="content" tabindex="-1">
 		<div class="row" id="home">
 			<main class="site-main" id="main">

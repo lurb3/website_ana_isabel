@@ -15,7 +15,7 @@ get_header();
 
 ?>
 
-<div id="photos-template" class="container" style="margin-left:633px;">
+<div id="photos-template" class="col-lg-9">
 
 	<!-- Show page content -->
 	<?php
