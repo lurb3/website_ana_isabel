@@ -1,5 +1,6 @@
 let sliderImages = [];
 let currentImageIndex = '';
+let slideControl = false;
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     const photoSliderImage = document.querySelectorAll('.photo-slider-image');
@@ -8,6 +9,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
         sliderImages.push(photoSliderImage[i].src);
     }
 });
+
+document.onkeydown = (event) => {
+    if(slideControl) {
+        switch(event.key) {
+            case "ArrowLeft" :
+                prevSlide();
+                break;
+
+            case "ArrowRight" :
+                nextSlide();
+                break;
+        }
+    }
+
+}
 
 const openSlider = (element) => {
     const currentPhoto = document.getElementById('slider-current-photo');
@@ -22,6 +38,8 @@ const openSlider = (element) => {
         }
         
     }
+
+    slideControl = true;
 }
 
 const closeSlider = () => {
@@ -34,24 +52,21 @@ const prevSlide = () => {
     if(currentImageIndex == 0) {
         currentImageIndex = sliderImages.length;
     }
-    
+
     const currentPhoto = document.getElementById('slider-current-photo');
     
     currentPhoto.src = sliderImages[currentImageIndex-1];
     currentImageIndex = currentImageIndex-1;
-
-    console.log(currentImageIndex);
 }
 
 const nextSlide = () => {
+    console.log(currentImageIndex);
+    if(currentImageIndex == sliderImages.length - 1) {
+        currentImageIndex = -1;
+    }
 
     const currentPhoto = document.getElementById('slider-current-photo');
     
     currentPhoto.src = sliderImages[currentImageIndex+1];
     currentImageIndex = currentImageIndex+1;
-
-    if(currentImageIndex == sliderImages.length) {
-        currentImageIndex = 0;
-    }
- 
 }
