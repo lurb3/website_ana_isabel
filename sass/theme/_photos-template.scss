@@ -26,6 +26,10 @@ $monoFont: 'Space Mono', monospace;
     }
 }
 
+#photos-template {
+    padding:50px;
+}
+
 #photo-slider {
     display:none;
     position:fixed;
@@ -40,7 +44,7 @@ $monoFont: 'Space Mono', monospace;
         left:0;
         height:100%;
         width:100%;
-        background-color: rgba(0, 0, 0, 0.514);
+        background-color: rgba(0, 0, 0, 0.884);
         z-index:2;
     }
     #photo-wrapper {
@@ -49,13 +53,6 @@ $monoFont: 'Space Mono', monospace;
         justify-content: center;
         height:100%;
         padding:50px;
-        #arrows-wrapper {
-            z-index:3;
-            .arrows {
-                display: inline;
-                cursor: pointer;
-            }
-        }
         #slider-current-photo {
             align-self: center;
             z-index:3;
@@ -66,9 +63,26 @@ $monoFont: 'Space Mono', monospace;
             right:0;
             padding:20px;
             cursor: pointer;
+            z-index:3;
             img {
                 width:30px;
             }
+        }
+        .arrow-left {
+            position:absolute;
+            top:50%;
+            left:20px;
+            transform: translateY(-50%);
+            z-index:3;
+            cursor: pointer;
+        }
+        .arrow-right {
+            position:absolute;
+            top:50%;
+            right:20px;
+            transform: translateY(-50%);
+            z-index:3;
+            cursor: pointer;
         }
     }
 }

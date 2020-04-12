@@ -1,6 +1,7 @@
 <?php
 /**
- * The template for displaying all single posts
+ * Template Name: Full-width page layout
+ * Template Post Type: post
  *
  * @package understrap
  */

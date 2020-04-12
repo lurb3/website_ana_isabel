@@ -18,11 +18,19 @@ get_header();
 <div id="photo-slider">
 	<div id="photo-wrapper">
 		<img id="slider-current-photo" src="#" alt="">
-		<div id="arrows-wrapper" class="text-center mt-2">
-			<div onclick="closeSlider()" id="cross"><img src="<?php echo get_bloginfo('stylesheet_directory') . '/images/cross.svg'; ?>" alt=""></div>
-			<div onclick="prevSlide()" class="arrows"><img style="width:30px; margin-right:20px;" src="<?php echo get_bloginfo('stylesheet_directory') . '/images/arrow-left.svg'; ?>" alt=""></div>
-			<div onclick="nextSlide()" class="arrows"><img style="width:30px;" src="<?php echo get_bloginfo('stylesheet_directory') . '/images/arrow-right.svg'; ?>" alt=""></div>
+
+		<div onclick="closeSlider()" id="cross">
+			<img src="<?php echo get_bloginfo('stylesheet_directory') . '/images/cross.png'; ?>" alt="">
 		</div>
+
+		<div onclick="prevSlide()" class="arrows arrow-left">
+			<img style="width:30px; margin-right:20px;" src="<?php echo get_bloginfo('stylesheet_directory') . '/images/arrow-left.png'; ?>" alt="">
+		</div>
+
+		<div onclick="nextSlide()" class="arrows arrow-right">
+			<img style="width:30px;" src="<?php echo get_bloginfo('stylesheet_directory') . '/images/arrow-right.png'; ?>" alt="">
+		</div>
+
 		<div onclick="closeSlider()" id="photo-slider-background"></div>
 	</div>
 </div>

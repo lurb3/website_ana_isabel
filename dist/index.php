@@ -17,21 +17,24 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 
 ?>
-
-<div>
-
+<div class="col-lg-9">
 	<div class="container mw-100 w-100" id="content" tabindex="-1">
-
-		<div class="row">
-
+		<div class="row" id="home">
 			<main class="site-main" id="main">
-				<img src=" <?php echo get_template_directory_uri() ?>/images/image1.jpg">
+				<div id="home-pictures">
+					<?php
+						$pages = get_pages();
+						foreach($pages as $page) {
+							$page_url = get_post_permalink($page->ID);
+							$thumbnail = get_the_post_thumbnail($page->ID);
+							echo "<a href=" . $page_url . ">" . $thumbnail . "</a>";
+							//var_dump(acf_photo_gallery('image', $post->ID));
+						}
+					?>
+				</div>
 			</main><!-- #main -->
-
 		</div><!-- .row -->
-
 	</div><!-- #content -->
-
 </div><!-- #index-wrapper -->
 
 <?php get_footer();

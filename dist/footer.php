@@ -38,7 +38,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 	</div><!-- container end -->
 
 </div><!-- wrapper end -->
-
+</div> <!-- row -->
 </div><!-- #page we need this extra closing tag here -->
 
 <?php wp_footer(); ?>
